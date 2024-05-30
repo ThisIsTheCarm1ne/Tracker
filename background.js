@@ -20,11 +20,7 @@ function startTimer(tabId) {
       const url = await getActiveTabUrl();
 
       // Update the total elapsed time for the URL
-      if (!totalTimeByUrl[url]) {
-        totalTimeByUrl[url] = elapsedTime;
-      } else {
-        totalTimeByUrl[url] += elapsedTime;
-      }
+      totalTimeByUrl[url] = elapsedTime;
 
       console.log(`Total time for ${url}: ${totalTimeByUrl[url]} seconds`);
     })();
