@@ -1,0 +1,20 @@
+html, body {
+  width: 400px;
+  background-color: #0B2419;
+  color: #F4FFF8;
+}
+body {
+  padding: 2vh;
+}
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table, tr, th, td {
+  border: 2px solid #8BAAAD;
+  text-align: center;
+}

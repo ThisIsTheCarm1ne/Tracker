@@ -3,8 +3,14 @@ let totalTimeByUrl = {};
 
 async function getActiveTabUrl() {
   try {
+    const regex = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/;
     const activeTab = await browser.tabs.query({ active: true, currentWindow: true });
-    return activeTab[0].url;
+    const match = (activeTab[0].url).match(regex)
+    if (match) {
+      return `${match[2]}.${match[3]}`;
+    } else {
+      throw "Can't clear url";
+    }
   } catch (error) {
     console.log(error);
   }
