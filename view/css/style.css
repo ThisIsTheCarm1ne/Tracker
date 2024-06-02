@@ -5,6 +5,9 @@ html, body {
 }
 body {
   padding: 2vh;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 h1 {
   text-transform: uppercase;
@@ -17,4 +20,19 @@ table {
 table, tr, th, td {
   border: 2px solid #8BAAAD;
   text-align: center;
+}
+#closeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background: 0;
+  border: 0;
+  color: inherit;
+}
+#closeButton:hover {
+  color: #bebfc1;
+}
+#closeButton > svg{
+  width: 2em;
+  height: auto;
 }
