@@ -1,6 +1,10 @@
 let timers = {};
 let totalTimeByUrl = {};
 
+if (localStorage.getItem('totalTimeByUrl')) {
+  totalTimeByUrl = JSON.parse(localStorage.getItem('totalTimeByUrl'));
+}
+
 async function getActiveTabUrl() {
   try {
     const regex = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/;
@@ -17,7 +21,13 @@ async function getActiveTabUrl() {
 }
 
 function startTimer(tabId) {
+  // Checks if there is already exist an interval
+  if (timers[tabId]) {
+    return;
+  }
+
   let startTime = Date.now();
+
   timers[tabId] = setInterval(() => {
     const currentTime = Date.now();
     const elapsedTime = Math.floor((currentTime - startTime) / 1000); // Convert milliseconds to seconds
@@ -27,6 +37,9 @@ function startTimer(tabId) {
 
       // Update the total elapsed time for the URL
       totalTimeByUrl[url] = elapsedTime;
+
+      // Save total time to localStorage
+      localStorage.setItem('totalTimeByUrl', JSON.stringify(totalTimeByUrl));
 
       console.log(`Total time for ${url}: ${totalTimeByUrl[url]} seconds`);
     })();

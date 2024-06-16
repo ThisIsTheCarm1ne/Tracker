@@ -3,6 +3,13 @@
   "name": "Tracker",
   "version": "1.0",
 
+  "_comment": "for testing purposes",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "test@gmail.com"
+    }
+  },
+
   "description": "Tracs your time between websites",
 
   "icons": {
